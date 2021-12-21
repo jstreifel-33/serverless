@@ -5,6 +5,10 @@ from urllib import parse
 class handler(BaseHTTPRequestHandler):
 
     def fast_fib(self, n):
+        """
+        Calculates the nth number of fibonacci,
+        using a rounding formula based on golden ratio
+        """
         gold_r = (1 + 5 ** 0.5) / 2
         return round((gold_r**n)/(5**0.5))
 
@@ -16,7 +20,6 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
 
         #do stuff
-
         s = self.path
         url_components = parse.urlsplit(s)
         query_dict = parse.parse_qs(url_components.query)
